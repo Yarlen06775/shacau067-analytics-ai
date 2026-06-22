@@ -1,0 +1,269 @@
+# shacau067-analytics-ai
+Bora faturar
+index.html
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shacau Analytics AI</title><style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    background:#111827;
+    padding:20px;
+    border-bottom:1px solid #1f2937;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#22c55e;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    margin-top:5px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#cbd5e1;
+}
+
+.card{
+    background:#1e293b;
+    border:1px solid #334155;
+    border-radius:12px;
+    padding:20px;
+    margin-top:20px;
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#22c55e;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+button{
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+.result{
+    margin-top:20px;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:10px;
+    background:#22c55e;
+    padding:5px 12px;
+    border-radius:20px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+    margin-top:50px;
+}
+
+</style></head><body><header>
+    <div class="logo">⚽ Shacau Analytics AI</div>
+    <div class="subtitle">
+        Análise esportiva com inteligência artificial
+    </div>
+</header><section class="hero">
+    <h1>Analise Jogos Como um Trader Profissional</h1>
+    <p>
+        Gols, escanteios, cartões, chutes no gol e criar aposta.
+    </p>
+</section><div class="container"><div class="card">
+
+    <h2>🔍 Analisar Partida</h2>
+
+    <input
+        type="text"
+        id="jogo"
+        placeholder="Ex: Real Madrid x Bayern"
+    >
+
+    <button onclick="analisar()">
+        Analisar Jogo
+    </button>
+
+    <div id="resultado" class="result"></div>
+
+</div>
+
+<div class="card">
+
+    <h2>🎯 Bilhete Seguro do Dia</h2>
+
+    <p>✅ Over 1.5 gols</p>
+    <p>✅ Over 7.5 escanteios</p>
+    <p>✅ Over 2.5 cartões</p>
+
+    <div class="badge">
+        Confiança 8.5/10
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2>💰 Gestão de Banca</h2>
+
+    <input
+        type="number"
+        id="banca"
+        placeholder="Digite sua banca"
+    >
+
+    <button onclick="calcularStake()">
+        Calcular Stake
+    </button>
+
+    <div id="stake" class="result"></div>
+
+</div>
+
+<div class="card">
+
+    <h2>👑 Plano Premium</h2>
+
+    <p>✔ Análises ilimitadas</p>
+    <p>✔ Bilhete seguro diário</p>
+    <p>✔ Upload de prints</p>
+    <p>✔ Gestão de banca</p>
+
+    <br>
+
+    <h3>R$ 10,00/mês</h3>
+
+</div>
+
+</div><footer>
+    © 2026 Shacau Analytics AI
+</footer><script>
+
+function analisar(){
+
+    const jogo =
+    document.getElementById("jogo").value;
+
+    if(!jogo){
+        alert("Digite uma partida.");
+        return;
+    }
+
+    document.getElementById("resultado")
+    .innerHTML = `
+
+    <h3>${jogo}</h3>
+
+    <br>
+
+    ⚽ Over 1.5 gols: 82%
+
+    <br><br>
+
+    🚩 Over 8.5 escanteios: 76%
+
+    <br><br>
+
+    🟨 Over 3.5 cartões: 71%
+
+    <br><br>
+
+    🎯 Over 6.5 chutes no gol: 79%
+
+    <br><br>
+
+    <strong>Melhor Criar Aposta</strong>
+
+    <br>
+
+    ✅ Over 1.5 gols
+
+    <br>
+
+    ✅ Over 7.5 escanteios
+
+    <br>
+
+    ✅ Over 2.5 cartões
+
+    <br><br>
+
+    <span class="badge">
+        Confiança: 8.5/10
+    </span>
+
+    `;
+}
+
+function calcularStake(){
+
+    let banca =
+    parseFloat(
+        document.getElementById("banca").value
+    );
+
+    if(isNaN(banca)){
+        alert("Digite um valor válido.");
+        return;
+    }
+
+    let stake = banca * 0.02;
+
+    document.getElementById("stake")
+    .innerHTML =
+    `Stake recomendada (2%): R$ ${stake.toFixed(2)}`;
+}
+
+</script></body>
+</html>
